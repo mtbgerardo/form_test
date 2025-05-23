@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Form</title>
+  <link rel="stylesheet" href="/src/styles.css">
+</head>
+
+<body>
+  <header class="header">
+    <img src="public/logo.svg" title="modernize home empowerment" alt="Logo">
+  </header>
+  <main>
+    <div class="container">
+      <div class="form-container">
+        <form id="contactForm">
+          <div class="form-header">
+            <h2>Enter to win a 3rd generation Nest<br> Learning Thermostat worth $249</h2>
+          </div>
+          <div class="form-group">
+            <input type="text" id="name" name="name" required minlength="2" placeholder="Name">
+          </div>
+          <div class="form-group">
+            <input type="text" id="city" name="city" placeholder="City" style="width: 70%;">
+            <input type="text" id="state" name="state" placeholder="State" style="width: 30%;">
+          </div>
+          <div class="form-group">
+            <input type="tel" id="phone" name="phone" required placeholder="Phone Number">
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" name="email" required placeholder="Email Address">
+          </div>
+          <div class="button-container">
+            <button type="submit" id="submitBtn">Enter to win</button>
+          </div>
+        </form>
+      </div>
+      <div class="add-container">
+        <div class="add-title">
+          <h1>Even more Savings</h1>
+        </div>
+        <div class="add-item">
+          <p class="add-category">Advertorial</p>
+          <p class="add-subtitle">Tricks Homeowners Use to Eliminate Bills</p>
+          <p class="add-text">Surging energy bills, unpredictable weather patterns and dissatisfaction with utility companies have homeowners scrambling…</p>
+          <div class="add-read-more">
+            <a href="https://google.com" target="_blank" title="Read more">Read more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+  </footer>
+  <script src="/src/form.js"></script>
+</body>
+
+</html>
