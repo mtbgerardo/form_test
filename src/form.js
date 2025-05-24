@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Simulate delay for successful response
             if ( req.status === 0) {
-                await new Promise((resolve) => setTimeout(resolve, 1500));
+                await new Promise((resolve) => setTimeout(resolve, 1700));
 			    submitBtn.textContent = "Submitted";
             } 
 
