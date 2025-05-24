@@ -67,36 +67,41 @@ document.addEventListener("DOMContentLoaded", () => {
 		submitBtn.disabled = true;
 
 		try {
-			// Simulate form submission (endpoint won't work as specified)
-		    let xml = new XMLHttpRequest();
-            xml.open("POST", "https://formsws-hilstaging-com-0adj9wt8gzyq.runscope.net/solar");
-            xml.setRequestHeader("Content-Type", "application/json");
-            xml.send(JSON.stringify({
+			// Simulate form submission (endpoint is not working)
+		    let req = new XMLHttpRequest();
+
+            req.open("POST", "https://formsws-hilstaging-com-0adj9wt8gzyq.runscope.net/solar");
+
+            req.setRequestHeader("Content-Type", "application/json");
+
+            req.onload = () => {
+                if ( req.status === 200 && req.readyState === 4) {
+                    submitBtn.textContent = "Submitted";
+                    const res = JSON.parse(req.responseText);
+                    console.log(res);
+                } else {
+                    submitBtn.textContent = "Submit";
+                    submitBtn.disabled = false;
+                    throw new Error("Bad request");
+                }
+            };
+
+            req.send(JSON.stringify({
                 name: nameInput.value,
                 phone: phoneInput.value,
                 email: emailInput.value,
                 city: cityInput.value,
                 state: stateInput.value   
             }));
-            xml.onload = () => {
-                if ( xml.status === 200) {
-                    submitBtn.textContent = "Submitted";
-                } else {
-                    submitBtn.textContent = "Submit";
-                    submitBtn.disabled = false;
-                }
-            };
 
-            // Simulate successful response
-            if ( xml.status === 0) {
-                await new Promise((resolve) => setTimeout(resolve, 1000));
+            // Simulate delay for successful response
+            if ( req.status === 0) {
+                await new Promise((resolve) => setTimeout(resolve, 1500));
 			    submitBtn.textContent = "Submitted";
             } 
 
 		} catch (error) {
 			console.error("Form submission error:", error);
-			submitBtn.textContent = "Submit";
-			submitBtn.disabled = false;
 		}
 	});
 });
