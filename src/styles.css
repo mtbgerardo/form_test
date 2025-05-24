@@ -1,5 +1,5 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap'); */
-/* font local    */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/* font local    
 @font-face {
     font-family: 'Montserrat';
     src: url('/fonts/Montserrat-Regular.ttf') format('truetype');
@@ -20,6 +20,7 @@
     font-weight: 600;
     font-style: normal;
 }
+*/
 
 /* Base styles */
 :root {
@@ -52,10 +53,6 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100dvh;
-    background: var(--bg-color) url('/background.png');
-    background-size: contain;
-    background-position: top left;
-    background-repeat: repeat;
     animation: bgTransition var(--transition-duration) infinite alternate;
 }
 
@@ -315,8 +312,23 @@ button#submitBtn {
     }
 }
 
-/* Mobile styles */
+/* breakpoint styles */
+@media (min-width: 768px) {
+    body {
+        background: var(--bg-color) url('/background_desktop.png');
+        background-size: contain;
+        background-position: top left;
+        background-repeat: repeat;
+    }
+}
+
 @media (max-width: 767px) {
+    body {
+        background: var(--bg-color) url('/background_mobile.png');
+        background-size: contain;
+        background-position: top left;
+        background-repeat: repeat;
+    }
     .container {
         margin: 0 auto;
         padding: 0 1rem;
